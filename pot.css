@@ -1,0 +1,233 @@
+        :root {
+            --primary: #38bdf8;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--primary);
+            width: auto;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 100px 10%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            min-height: 90vh;
+        }
+
+        .hero-content { flex: 1; }
+        .hero-image { flex: 1; text-align: right; }
+
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1rem; }
+        .hero h1 mark { background: none; color: var(--primary); }
+        .hero h3 { font-size: 1.5rem; color: var(--text-dim); margin-bottom: 2rem; font-weight: 300; }
+
+        .hero img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 30px;
+            border: 8px solid var(--bg-card);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-block;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .btn-primary { background: var(--primary); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); }
+
+        .btn-outline { background: transparent; border: 1px solid var(--text-dim); color: var(--text-main); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* --- Sections --- */
+        section { padding: 80px 10%; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; position: relative; }
+        h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary); margin-top: 10px; }
+
+        /* --- Skills Grid --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-card h3 { color: var(--primary); margin-bottom: 1rem; }
+        .skill-card ul { list-style: none; }
+        .skill-card li { margin-bottom: 8px; color: var(--text-dim); }
+        .skill-card li::before { content: "→ "; color: var(--primary); }
+
+        /* --- Projects --- */
+        .project-list { display: flex; flex-direction: column; gap: 2rem; }
+        .project-item {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: var(--transition);
+        }
+        .project-item:hover { background: #26334d; }
+
+        /* --- Contact Form --- */
+        form {
+            max-width: 600px;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: var(--text-dim); }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-dark);
+            border: 1px solid #334155;
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #020617;
+            padding: 50px 10%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .social-links a { color: var(--primary); margin: 0 10px; font-weight: bold; 
+            transition: var(--transition); text-decoration: none; }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 50px; }
+            .hero-image { text-align: center; }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+        }
+        #splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-dark); /* Matches your theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.splash-content {
+    text-align: center;
+}
+
+.logo-animation {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 2px;
+    background: rgba(56, 189, 248, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 10px;
+}
+
+.loader-bar::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    animation: loading 2s infinite;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    50% { left: 0; }
+    100% { left: 100%; }
+}
+
+/* Class to hide the splash */
+.splash-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
